@@ -16,3 +16,13 @@ class agent:
         self.status:AgentStatus = self.validate_status(status)
         self.missions_completed:int = missions_completed
         self.id:int| None = _id
+
+    @staticmethod
+    def validate_status(status: str) -> AgentStatus:
+        if not isinstance(status, str):
+            raise TypeError(f"Status must be a string, got {type(status).__name__}")
+        status_name = status.upper()
+        if status_name in AgentStatus.__members__:
+            return AgentStatus[status_name]
+        else:
+            raise ValueError(f"Invalid status '{status}'. Must be one of {list(AgentStatus.__members__.keys())}")
