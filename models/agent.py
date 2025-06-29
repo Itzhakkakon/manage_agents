@@ -26,3 +26,8 @@ class agent:
             return AgentStatus[status_name]
         else:
             raise ValueError(f"Invalid status '{status}'. Must be one of {list(AgentStatus.__members__.keys())}")
+
+    def __str__(self):
+        if self.id is not None:
+            return f"Agent({self.id}): {self.code_name} - {self.real_name} at {self.location} with status {self.status}"
+        return f"Agent: {self.code_name} - {self.real_name} at {self.location} with status {self.status}"
