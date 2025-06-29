@@ -37,3 +37,11 @@ def add_agent(agent: tuple) -> bool:
         else:
             print("Failed to connect to the database.")
             return False
+
+if __name__ == "__main__":
+    # Example usage
+    print(get_all_agents())
+    print(add_agent(("Agent001", "John Doe", "New York", "Active", 3)))
+    print(add_agent(("Agent002", "Jane Smith", "Los Angeles", "Inactive", 2)))
+    print(get_all_agents())
+    print(add_agent(("Agent007", "James Bond", "London", "Active", 5)))
